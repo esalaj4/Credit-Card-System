@@ -1,0 +1,103 @@
+<form [formGroup]="addCreditCardForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="card_number">Card Number: </label>   
+        <input type="text" id="card_number" formControlName="card_number">   
+        @if(addCreditCardForm.controls.card_number.invalid &&
+            (addCreditCardForm.controls.card_number.dirty ||
+            addCreditCardForm.controls.card_number.touched )) { 
+            <div class="alert-danger">     
+                @if(addCreditCardForm.controls.card_number.errors?.['required']) {
+                    Card number is required     
+                }
+                @else if(addCreditCardForm.controls.card_number.errors?.['pattern']) {
+                    Card number can contain only numbers
+                }
+                @else if(addCreditCardForm.controls.card_number.errors?.['minlength']) {
+                    Card number has minimal length 7
+                }
+                @else if(addCreditCardForm.controls.card_number.errors?.['maxlength']) {
+                    Card number has maximal length 16
+                }
+            </div>
+        }
+    </div>
+    
+    <div>
+        <label for="cardholder_name">Card holder name: </label>   
+        <input type="text" id="cardholder_name" formControlName="cardholder_name">   
+        @if(addCreditCardForm.controls.cardholder_name.invalid &&
+            (addCreditCardForm.controls.cardholder_name.dirty ||
+            addCreditCardForm.controls.cardholder_name.touched )) { 
+            <div class="alert-danger">     
+                @if(addCreditCardForm.controls.cardholder_name.errors?.['required']) {
+                    Cardholder name is required     
+                }
+            </div>
+        }
+    </div>
+
+    <div>
+        <label for="csc_code">CSC code: </label>   
+        <input type="text" id="csc_code" formControlName="csc_code">   
+        @if(addCreditCardForm.controls.csc_code.invalid &&
+            (addCreditCardForm.controls.csc_code.dirty ||
+            addCreditCardForm.controls.csc_code.touched )) { 
+            <div class="alert-danger">     
+                @if(addCreditCardForm.controls.csc_code.errors?.['required']) {
+                    CSC number is required     
+                }
+                @else if(addCreditCardForm.controls.csc_code.errors?.['pattern']) {
+                    CSC number can contain exactly 3 numbers
+                }
+            </div>
+        }
+    </div>
+
+    <div>
+        <label for="expiration_date_month">Expiration date month: </label>   
+        <input type="text" id="expiration_date_month" formControlName="expiration_date_month">   
+        @if(addCreditCardForm.controls.expiration_date_month.invalid &&
+            (addCreditCardForm.controls.expiration_date_month.dirty ||
+            addCreditCardForm.controls.expiration_date_month.touched )) { 
+            <div class="alert-danger">     
+                @if(addCreditCardForm.controls.expiration_date_month.errors?.['required']) {
+                    Expiration date month is required     
+                }
+                @else if(addCreditCardForm.controls.expiration_date_month.errors?.['pattern']) {
+                    Expiration date month can contain only numbers
+                }
+                @else if(addCreditCardForm.controls.expiration_date_month.errors?.['min']) {
+                    Minimal value of Expiration date month is 1
+                }
+                @else if(addCreditCardForm.controls.expiration_date_month.errors?.['max']) {
+                    Maximal value of Expiration date month is 12
+                }
+            </div>
+        }
+    </div>
+
+    <div>
+        <label for="expiration_date_year">Expiration date year: </label>   
+        <input type="text" id="expiration_date_year" formControlName="expiration_date_year">   
+        @if(addCreditCardForm.controls.expiration_date_year.invalid &&
+            (addCreditCardForm.controls.expiration_date_year.dirty ||
+            addCreditCardForm.controls.expiration_date_year.touched )) { 
+            <div class="alert-danger">     
+                @if(addCreditCardForm.controls.expiration_date_year.errors?.['required']) {
+                    Expiration date year is required     
+                }
+                @else if(addCreditCardForm.controls.expiration_date_year.errors?.['pattern']) {
+                    Expiration date year can contain only numbers
+                }
+            </div>
+        }
+    </div>
+
+    <div>
+        <label for="issuer">Issuer: </label>   
+        <input type="text" id="issuer" formControlName="issuer">   
+    </div>
+
+    <button type="submit" class="button">Add credit card</button>
+</form>

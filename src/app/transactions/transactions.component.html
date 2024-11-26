@@ -1,0 +1,24 @@
+<div>
+    <div class="transaction-filter">
+        <h2>Filter Transactions by Card Number</h2>
+        <input type="text" [(ngModel)]="filterCardNumber" (input)="filterTransactions()" placeholder="Enter Card Number" />
+    </div>
+    
+
+    <h2>Transaction List</h2>
+    <button (click)="goToAddTransaction()">
+        <span>Add Transaction</span>
+    </button>
+    <ul>
+        <li *ngFor="let transaction of filteredTransactions; let i = index">
+            <h3>Transaction {{ i + 1 }}</h3>
+            <p>Amount: {{ transaction.amount | number:'1.2-2' }}</p>
+            <p>Currency: {{ transaction.currency }}</p>
+            <p>Cardholder Name: {{ transaction.credit_card.cardholder_name }}</p>
+            <p>Comment: {{ transaction.comment }}</p>
+            <p>Card Number: {{ transaction.credit_card.card_number }}</p>
+            <p>Date: {{ transaction.date | date:'short' }}</p>
+            <button (click)="removeTransaction(transaction.uid)">Remove</button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,67 @@
+h2, h3 {
+  text-align: center;
+  color: #0056b3;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f5;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px; 
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+  text-align: left;
+}
+
+.button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00408d;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+
+li {
+  padding: 10px;
+  margin-bottom: 10px; 
+  border-bottom: 1px solid #ddd; 
+}
+
+ng-template {
+  text-align: center;
+  color: #555;
+}

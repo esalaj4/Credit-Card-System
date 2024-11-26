@@ -1,0 +1,27 @@
+<h2>Creditcard Details</h2>
+
+<div class="container">
+  <div class="card" *ngIf="creditCard">
+    <p>Card Number: {{ creditCard.card_number }}</p>
+    <p>Cardholder Name: {{ creditCard.cardholder_name }}</p>
+    <p>CSC Code: {{ creditCard.csc_code }}</p>
+    <p>Expiration Date: {{ creditCard.expiration_date_month | expirationDate:creditCard.expiration_date_year }}</p>
+    <p>Issuer: {{ creditCard.issuer }}</p>
+    <button class="button" (click)="removeCard()">Remove Credit Card</button>
+  </div>
+
+  <h3>Transactions for this Credit Card</h3>
+  <div class="card">
+    <ul *ngIf="filteredTransactions.length > 0; else noTransactions">
+      <li *ngFor="let transaction of filteredTransactions">
+        <p>Amount: {{ transaction.amount }} {{ transaction.currency }}</p>
+        <p>Comment: {{ transaction.comment }}</p>
+        <p>Date: {{ transaction.date | date:'shortDate' }}</p>
+        <p>Transaction UID: {{ transaction.uid }}</p>
+      </li>
+    </ul>
+    <ng-template #noTransactions>
+      <p>No transactions found for this credit card.</p>
+    </ng-template>
+  </div>
+</div>

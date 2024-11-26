@@ -1,0 +1,35 @@
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f5;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  a.button {
+    margin: 0 15px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0056b3;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  a.button:hover {
+    background-color: #00408d;
+    transform: scale(1.05);
+  }
+  
+  a.activebutton {
+    background-color: #00408d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  router-outlet {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+  }
+  

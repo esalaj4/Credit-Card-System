@@ -1,0 +1,41 @@
+<form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+    <div>
+        <label for="amount">Amount:</label>
+        <input id="amount" type="number" formControlName="amount" required>
+    </div>
+
+    <div>
+        <label for="card_number">Credit Card:</label>
+        <select id="card_number" formControlName="card_number" required>
+            <option value="" disabled selected>Select Credit Card</option>
+            <option *ngFor="let card of creditCards" [value]="card.card_number">
+                {{ card.cardholder_name }} - {{ card.card_number }}
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="currency">Currency:</label>
+        <select id="currency" formControlName="currency" required>
+            <option value="" disabled selected>Select Currency</option>
+            <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="cardholder_name">Cardholder Name:</label>
+        <input id="cardholder_name" type="text" formControlName="cardholder_name" required>
+    </div>
+
+    <div>
+        <label for="comment">Comment:</label>
+        <input id="comment" type="text" formControlName="comment">
+    </div>
+
+    <div>
+        <label for="date">Transaction Date:</label>
+        <input id="date" type="date" formControlName="date" required>
+    </div>
+
+    <button type="submit" class="primary">Add Transaction</button>
+</form>

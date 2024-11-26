@@ -1,0 +1,9 @@
+<h2>Credit Card List</h2>
+<ul>
+  <li *ngFor="let card of client">
+    <p>Card Number: {{ card.card_number }}</p>
+    <p>Cardholder Name: {{ card.cardholder_name }}</p>
+    <p>Issuer: {{ card.issuer }}</p>
+    <button class="button" (click)="navigateToDetails(card)">show details</button>
+  </li>
+</ul>
